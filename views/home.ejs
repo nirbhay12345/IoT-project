@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOT app</title>
+    <style>
+        #relay_block{
+            margin: auto;
+            width: 50%;
+            border: 3px solid black;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="relay_block">
+        <% relays.forEach(function(relay) { %>
+            <form method="POST" action="/relay/<%= relay._id %>?_method=PUT">
+                <h3><%=relay.relay%>
+                <input id="<%= relay.relay %>" type="submit" name="on_off" value="<%= relay.on_off %>"/>
+                <!-- <input type="submit" value="send"/> -->
+                <!-- id="<%= relay.relay %>" -->
+                </h3>    
+            </form>
+        <% }); %>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+       $("#relay1").click( function() {
+            if($(this).val().toString() == "off"){
+                $(this).prop("value", "on");
+            }else{
+                $(this).prop("value", "off");
+            }
+        });
+       
+       $("#relay2").click( function() {
+            if($(this).val().toString() == "off"){
+                $(this).prop("value", "on");
+            }else{
+                $(this).prop("value", "off");
+            }
+        });
+       
+       $("#relay3").click( function() {
+            if($(this).val().toString() == "off"){
+                $(this).prop("value", "on");
+            }else{
+                $(this).prop("value", "off");
+            }
+        });
+       
+       $("#relay4").click( function() {
+            if($(this).val().toString() == "off"){
+                $(this).prop("value", "on");
+            }else{
+                $(this).prop("value", "off");
+            }
+        });
+
+    </script>
+
+</body>
+</html>
